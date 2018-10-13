@@ -1,0 +1,29 @@
+{
+  "max_histories": [
+    2,
+    5
+  ],
+  "policy_names": [
+    "rasa_core.policies.memoization.MemoizationPolicy",
+    "rasa_core.policies.keras_policy.KerasPolicy"
+  ],
+  "rasa_core": "0.10.4",
+  "ensemble_name": "rasa_core.policies.ensemble.SimplePolicyEnsemble",
+  "action_fingerprints": {
+    "action_listen": {
+      "slots": [
+        "location"
+      ]
+    },
+    "null": {
+      "slots": [
+        "location"
+      ]
+    },
+    "utter_goodbye": {
+      "slots": [
+        "location"
+      ]
+    }
+  }
+}

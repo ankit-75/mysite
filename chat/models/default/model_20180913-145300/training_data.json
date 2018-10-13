@@ -1,0 +1,166 @@
+{
+  "rasa_nlu_data": {
+    "regex_features": [],
+    "common_examples": [
+      {
+        "intent": "greet",
+        "text": "hey"
+      },
+      {
+        "intent": "greet",
+        "text": "hello"
+      },
+      {
+        "intent": "greet",
+        "text": "hi"
+      },
+      {
+        "intent": "greet",
+        "text": "good morning"
+      },
+      {
+        "intent": "greet",
+        "text": "good evening"
+      },
+      {
+        "intent": "greet",
+        "text": "hey there"
+      },
+      {
+        "intent": "restaurant_search",
+        "text": "i'm looking for a place to eat"
+      },
+      {
+        "intent": "restaurant_search",
+        "text": "I want to grab lunch"
+      },
+      {
+        "intent": "restaurant_search",
+        "text": "I am searching for a dinner spot"
+      },
+      {
+        "intent": "restaurant_search",
+        "text": "i'm looking for a place in the north of town",
+        "entities": [
+          {
+            "value": "north",
+            "entity": "location",
+            "start": 31,
+            "end": 36
+          }
+        ]
+      },
+      {
+        "intent": "restaurant_search",
+        "text": "show me chinese restaurants",
+        "entities": [
+          {
+            "value": "chinese",
+            "entity": "cuisine",
+            "start": 8,
+            "end": 15
+          }
+        ]
+      },
+      {
+        "intent": "restaurant_search",
+        "text": "show me a mexican place in the centre",
+        "entities": [
+          {
+            "value": "mexican",
+            "entity": "cuisine",
+            "start": 10,
+            "end": 17
+          },
+          {
+            "value": "centre",
+            "entity": "location",
+            "start": 31,
+            "end": 37
+          }
+        ]
+      },
+      {
+        "intent": "restaurant_search",
+        "text": "i am looking for an indian spot",
+        "entities": [
+          {
+            "value": "indian",
+            "entity": "cuisine",
+            "start": 20,
+            "end": 26
+          }
+        ]
+      },
+      {
+        "intent": "restaurant_search",
+        "text": "search for restaurants"
+      },
+      {
+        "intent": "restaurant_search",
+        "text": "anywhere in the west",
+        "entities": [
+          {
+            "value": "west",
+            "entity": "location",
+            "start": 16,
+            "end": 20
+          }
+        ]
+      },
+      {
+        "intent": "restaurant_search",
+        "text": "anywhere near 18328",
+        "entities": [
+          {
+            "value": "18328",
+            "entity": "location",
+            "start": 14,
+            "end": 19
+          }
+        ]
+      },
+      {
+        "intent": "restaurant_search",
+        "text": "I am looking for asian fusion food",
+        "entities": [
+          {
+            "value": "asian fusion",
+            "entity": "cuisine",
+            "start": 17,
+            "end": 29
+          }
+        ]
+      },
+      {
+        "intent": "restaurant_search",
+        "text": "I am looking a restaurant in 29432",
+        "entities": [
+          {
+            "value": "29432",
+            "entity": "location",
+            "start": 29,
+            "end": 34
+          }
+        ]
+      },
+      {
+        "intent": "thankyou",
+        "text": "thanks!"
+      },
+      {
+        "intent": "thankyou",
+        "text": "thank you"
+      },
+      {
+        "intent": "thankyou",
+        "text": "thx"
+      },
+      {
+        "intent": "thankyou",
+        "text": "thanks very much"
+      }
+    ],
+    "entity_synonyms": []
+  }
+}

@@ -1,0 +1,26 @@
+<!-- chat/templates/chat/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Chat Rooms</title>
+</head>
+<body>
+   Enter Your Name <br/>
+    <input id="name-input" type="text" size="30"/><br/>
+    <input id="name-submit" type="button" value="Enter"/>
+</body>
+<script>
+    document.querySelector('#name-input').focus();
+    document.querySelector('#name-input').onkeyup = function(e) {
+        if (e.keyCode === 13) {  // enter, return
+            document.querySelector('#name-submit').click();
+        }
+    };
+
+    document.querySelector('#name-submit').onclick = function(e) {
+        var name = document.querySelector('#name-input').value;
+        window.location.pathname = '/chat/' + name + '/';
+    };
+</script>
+</html>

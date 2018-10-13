@@ -1,0 +1,2 @@
+model_checkpoint_path: "/home/ak/Documents/nlu/./models/default/model_20180913-145300/intent_classifier_tensorflow_embedding.ckpt"
+all_model_checkpoint_paths: "/home/ak/Documents/nlu/./models/default/model_20180913-145300/intent_classifier_tensorflow_embedding.ckpt"

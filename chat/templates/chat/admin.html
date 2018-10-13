@@ -1,0 +1,220 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Admin</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=0">
+      <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+      <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.min.css' %}">
+      <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+      <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+      <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+   </head>
+   <body>
+      <!-- start main section -->
+      <section class="main-section">
+         <!-- start wrapper section -->
+         <section class="wrapper">
+            <div class="form-group-details">
+               <div class="row">
+                  <!-- start group chat left -->
+                  <div class="col-md-4">
+                     <div class="form-group-left">
+                        <div class="group-heading">
+                           <div class="pull-left grp-hed">
+                              <h1>Chats</h1>
+                           </div>
+                           <div class="clearfix"></div>
+                        </div>
+                        <ul class="nav nav-pills nav-stacked">
+                           <div id="demo">
+                           </div>
+                        </ul>
+                     </div>
+                     <!-- end form group -->
+                     <!-- end form group -->
+                  </div>
+                  <!-- end group chat left -->                
+                  <div class="col-md-8">
+                     <div class="form-group-chat">
+                        <div class="group-chat-sect">
+                           <div class="row">
+                              <div class="col-md-5">
+                                 <div class="inner-chat-sect">
+                                    <ul class="list-unstyled">
+                                       <li>
+                                          <div class="group-chat-one">
+                                             <div class="group-chat-img">
+                                                <img src="{% static 'img/micra.png' %}">
+                                             </div>
+                                             <div class="group-chat-textt">
+                                                <h3>Micra Systems</h3>
+                                                <div class="clearfix"></div>
+                                             </div>
+                                          </div>
+                                          <!-- end group chat -->
+                                       </li>
+                                    </ul>
+                                 </div>
+                                 <!-- end inner chat sect -->
+                              </div>
+                           </div>
+                           <!-- end popover sct -->
+                        </div>
+                        <div class="chat-section" id="chat-section">
+                           <ul class="list-unstyled">
+                              <div id="chathistory">
+                              </div id="bottom">
+                              
+                           </ul>
+                        </div>
+                        <div class="message-input">
+                           <div class="wrap"> 
+                              <input id="chat-message-input" placeholder="Type your message..." type="text" size="100"/>
+                              <button id="chat-message-submit" class="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                           </div>
+                        </div>
+                        <div class="clearfix"></div>
+                     </div>
+                     <!-- end form group -->
+                  </div>
+                  <!-- tab content -->
+               </div>
+               <!-- end of container -->
+            </div>
+            <!-- form-group-details -->
+         </section>
+         <!-- end wrapper -->
+         <!-- start footer section -->
+      </section>
+      <!-- end main section-->
+   </body>
+<script>
+  //run instantly and then goes after (setTimeout interval)
+
+/*$("#chat-section").animate({ scrollTop: $(document).height() }, 14000);*/
+/*    setTimeout(function() {
+       $('html, body').animate({scrollTop:0}, 4000); 
+    },4000);*/
+/*setInterval(function(){
+     // 4000 - it will take 4 secound in total from the top of the page to the bottom
+    $("html, body").animate({ scrollTop: $(document).height() }, 4000);
+    setTimeout(function() {
+       $('html, body').animate({scrollTop:0}, 4000); 
+    },4000);
+        
+},8000);*/
+  window.opensocket = { status : false}; 
+  $.ajax({
+    method: 'GET',
+    // url: 'http://localhost:8000/online/?format=json',
+    url: 'http://localhost:8000/online/?format=json',
+    success: function (response) {
+
+      //console.log(response);
+      var Reschat_id = '';
+      LOOP = 1
+      $.each(response, function (index, value) {
+        let myclass;
+        ////console.log(value)
+        if(value.is_active){
+          myclass = "remove-color";
+        }else{
+          myclass = "add-color";
+        }
+        ////console.log(myclass)
+        Reschat_id += '<li><a href="#tab_a" data-toggle="pill" class="clicks"><div class="group-chat"><div class="group-chat-img"><img src="{% static 'img/micra.png' %}"></div><div class="group-chat-text"><h3 class="pull-left">'+value.username+'</h3><span class="pull-right dot-chat"><i class="fa fa-circle  '+myclass+'" aria-hidden="true"></i></span><div class="clearfix"></div><p><span class="car-text" id=' + value.chatid + '>' + '' + '</span><span class="car-is_active"></span></p></div></div></a></li></br>';
+      })
+      $('#demo').html(Reschat_id);
+      $(document).ready(function () {
+        $(".clicks").click(function () {
+          window.a = $(this).find('.car-text').attr('id');
+          // $(this).find('.group-chat').addClass("active");
+           var parentobj = $(this).parent();
+           
+          ////console.log(a)
+         /*       //console.log($(document).height())
+          $(this).animate({ scrollTop: $(document).height() }, 14000);*/
+
+          //document.getElementById('bottom').scrollIntoView();
+          $.ajax({
+            method: 'GET',
+            // url: 'http://localhost:8000/message/?format=json',
+            url: 'http://localhost:8000/message/?id='+window.a,
+            success: function (response) {
+              var messageaa = '';
+              $.each(response, function (index, value) {
+                  if(value.user_msg){
+                    myclass = "sent";
+                  }else{
+                    myclass = "replies";
+                  }
+                  ////console.log(myclass)
+                  messageaa += '<li class="'+myclass+'"><img src="{% static 'img/pepole.JPG' %}" alt="user"><p>' + value.messagedata + '</p></li>';
+                
+              })
+              $('#chathistory').html(messageaa);
+              
+               if(window.opensocket.status){
+                  //console.log(window.opensocket);
+                  // $(window.opensocket.activeobj).removeClass('active');
+                   //p = $(window.a).parents('li')
+                   window.opensocket.activeobj.removeClass('active');
+                   //console.log(p)
+                   //console.log(window.opensocket.activeobj.parent())
+
+                    window.opensocket.socket.close()
+                  //return 
+               }
+              window.opensocket.status = true;
+              window.opensocket.activeobj = parentobj;
+              chatSocket = new WebSocket(
+                        'ws://' + window.location.host +
+                        '/ws/chat/common/mychat');
+
+              //console.log("OPEN")
+              ////console.log(window.chatSocket)
+              window.opensocket.socket = chatSocket;
+             // window.opensocket.activeobj = $(this).find('.group-chat');
+              //$(window.opensocket.activeobj).addClass('active');
+              chatSocket.onmessage = function (e) {
+              var data = JSON.parse(e.data);
+              //console.log("MSG")
+              //console.log(data)
+                if(data.response.chatid == window.a){
+                    if(data.response.reply){
+                          myclass = "replies";
+                          messagedata = data.response.response;
+                    }else{
+                      myclass = "sent";
+                      messagedata = data.response.message;
+                    }
+                    ////console.log(myclass)
+                    msg = '<li class="'+myclass+'"><img src="{% static 'img/pepole.JPG' %}" alt="user"><p>' + messagedata + '</p></li>';
+                    //$('.chathistory').append(msg + '\n');
+                    $('#chathistory').append(msg);
+                }
+             
+
+              };
+
+              chatSocket.onclose = function (e) {
+                console.error('Chat socket closed unexpectedly');
+              };
+              
+
+              
+
+
+
+            },
+          });
+        });
+      });
+    },
+  });
+
+
+</script>
+</html>

@@ -1,0 +1,33 @@
+slots:
+  location:
+    type: text
+
+
+intents:
+ - greet
+ - goodbye
+ - inform
+ - age
+
+
+entities:
+ - location
+
+templates:
+  utter_greet:
+    - 'Hello! I am a Weather Bot. <br>How can I help?'
+  utter_goodbye:
+    - 'Talk to you later.'
+    - 'Bye bye :('
+  utter_ask_location:
+    - 'In what location?'
+  utter_age:
+    - 'I am a Child?'
+
+
+actions:
+ - utter_greet
+ - utter_age
+ - utter_goodbye
+ - utter_ask_location
+ - actions.ActionWeather
