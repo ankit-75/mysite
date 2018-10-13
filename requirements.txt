@@ -101,7 +101,6 @@ pathlib==1.0.1
 pbr==3.1.1
 pexpect==4.6.0
 pickleshare==0.7.4
-pkg-resources==0.0.0
 plac==0.9.6
 ply==3.10
 preshed==1.0.0
