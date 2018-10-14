@@ -139,8 +139,6 @@ Sphinx==1.6.5
 sphinxcontrib-websupport==1.0.1
 tabulate==0.8.2
 tensorboard==1.8.0
-tensorflow==1.5.0
-tensorflow-tensorboard==1.5.1
 termcolor==1.1.0
 testpath==0.3.1
 thinc==6.10.3
