@@ -121,8 +121,6 @@ python-monkey-business==1.0.0
 python-telegram-bot==10.1.0
 pytz==2018.5
 PyYAML==3.12
-rasa-core==0.10.4
-rasa-nlu==0.13.1
 redis==2.10.6
 regex==2017.4.5
 requests==2.19.1
@@ -137,7 +135,6 @@ sklearn==0.0
 sklearn-crfsuite==0.3.6
 slackclient==1.2.1
 snowballstemmer==1.2.1
-spacy==2.0.12
 Sphinx==1.6.5
 sphinxcontrib-websupport==1.0.1
 tabulate==0.8.2
