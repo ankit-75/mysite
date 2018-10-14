@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'd@ip=ign!@olup^x^)t3jl27y!fhwbbt956riph-ohshjk!t!8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['cfehome.herokuapp.com']
 
 # Application definition
 
@@ -91,6 +91,10 @@ DATABASES = {
          'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
      }
  }
+# add this
+import dj_database_url
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
 #DATABASES = {
 #    'default': {
 #        'ENGINE': 'django.db.backends.mysql',
