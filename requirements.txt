@@ -147,7 +147,7 @@ Twisted==18.7.0
 txaio==18.8.1
 typing==3.6.4
 tzlocal==1.4
-ujson==1.35
+ujson==5.2.0
 urllib3==1.23
 wcwidth==0.1.7
 webencodings==0.5.1
